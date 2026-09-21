@@ -1,7 +1,7 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/yousefJooX/yousefJooX/main/assets/dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/yousefJooX/yousefJooX/main/assets/light.svg">
-  <img width="100%" alt="Yousef Mohammed - IoT and AI Developer" src="https://raw.githubusercontent.com/yousefJooX/yousefJooX/main/assets/light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/yousefJooX/yousefJooX/main/assets/dark.svg?v=2">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/yousefJooX/yousefJooX/main/assets/light.svg?v=2">
+  <img width="100%" alt="Yousef Mohammed - IoT and AI Developer" src="https://raw.githubusercontent.com/yousefJooX/yousefJooX/main/assets/light.svg?v=2">
 </picture>
 
 <!-- Replace github-readme-stats.vercel.app with your private Vercel instance after deployment. -->
@@ -33,4 +33,3 @@
     <img src="https://img.shields.io/badge/Email-0A101F?style=for-the-badge&logo=gmail&logoColor=10B981&labelColor=0A101F" alt="Email" />
   </a>
 </div>
-
