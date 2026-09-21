@@ -183,38 +183,44 @@ def travellers(color: str) -> str:
     return ''.join(chunks)
 
 
-ROWS = [
-    ("Subject", "Yousef Mohammed"),
-    ("Role", "IoT & AI Developer"),
-    ("Origin", "Cairo, Egypt"),
-    ("Education", "Helwan National University"),
-    ("Status", "Building + Learning + Shipping"),
-    ("ToolChain", "VS Code · Git · Linux · Arduino"),
-    ("Core.Lang", "Python · C++"),
-    ("Core.AI", "PyTorch · TensorFlow · NLP"),
-    ("Core.Embedded", "ESP32 · Arduino"),
-    ("Core.Data", "Pandas · NumPy · Scikit-learn"),
-    ("Core.Vision", "OpenCV"),
-    ("Grid.Mail", "ym9159303@gmail.com"),
-    ("Grid.Portfolio", "Coming soon"),
-    ("Grid.LinkedIn", "linkedin.com/in/joox"),
-    ("Grid.GitHub", "github.com/yousefJooX"),
-    ("Grid.Instagram", "instagram.com/joox.cmd"),
-]
-
-
-def info_panel(text: str, muted: str, chrome: str, accent: str) -> str:
-    chunks = [f'<text x="480" y="145" fill="{chrome}" font-size="13" font-weight="700" letter-spacing="2">SYSTEM.INFO</text>',
-              f'<rect x="1040" y="126" width="73" height="25" rx="12" fill="#EF4444" opacity=".16"/><circle cx="1054" cy="138.5" r="4" fill="#EF4444"><animate attributeName="opacity" values="1;.25;1" dur="1.4s" repeatCount="indefinite"/></circle><text x="1064" y="143" fill="#EF4444" font-size="12" font-weight="700">LIVE</text>',
-              f'<rect x="480" y="158" width="164" height="29" rx="14.5" fill="{chrome}" opacity=".14"/><text x="496" y="178" fill="{chrome}" font-size="14" font-weight="700">@yousefJooX</text>']
-    y = 211
-    for label_text, value in ROWS:
-        label_safe = html.escape(label_text)
-        value_safe = html.escape(value)
-        chunks.append(f'<text x="480" y="{y}" fill="{muted}" font-size="14">{label_safe}</text>')
-        chunks.append(f'<line x1="{610 if len(label_text) < 11 else 640}" y1="{y-4}" x2="777" y2="{y-4}" stroke="{muted}" stroke-opacity=".32" stroke-dasharray="2 5"/>')
-        chunks.append(f'<text x="1107" y="{y}" text-anchor="end" textLength="310" lengthAdjust="spacingAndGlyphs" fill="{text}" font-size="14">{value_safe}</text>')
-        y += 23
+def info_panel(text: str, muted: str, chrome: str, accent: str, border: str, bg: str, portrait_color: str) -> str:
+    chips = [
+        ("Python", 480, 455, 82), ("C++", 572, 455, 63),
+        ("PyTorch", 645, 455, 91), ("TensorFlow", 746, 455, 108),
+        ("ESP32", 864, 455, 76), ("OpenCV", 950, 455, 82),
+        ("Linux", 1042, 455, 67),
+    ]
+    chunks = [
+        f'<rect x="480" y="121" width="157" height="30" rx="15" fill="{chrome}" opacity=".14"/>',
+        f'<circle cx="498" cy="136" r="4" fill="{accent}"><animate attributeName="opacity" values="1;.35;1" dur="1.8s" repeatCount="indefinite"/></circle>',
+        f'<text x="510" y="141" fill="{chrome}" font-size="13" font-weight="700" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">@yousefJooX</text>',
+        f'<rect x="927" y="121" width="182" height="30" rx="15" fill="{accent}" opacity=".12"/>',
+        f'<text x="1018" y="141" text-anchor="middle" fill="{accent}" font-size="11" font-weight="700" letter-spacing="1.2" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">BUILDING IN PUBLIC</text>',
+        f'<text x="480" y="205" fill="{text}" font-size="34" font-weight="750" letter-spacing="-.5" font-family="Inter,Segoe UI,Arial,sans-serif">Yousef Mohammed</text>',
+        f'<text x="480" y="237" fill="{chrome}" font-size="18" font-weight="650" font-family="Inter,Segoe UI,Arial,sans-serif">IoT &amp; AI Developer</text>',
+        f'<text x="480" y="277" fill="{muted}" font-size="15" font-family="Inter,Segoe UI,Arial,sans-serif">I build intelligent systems where AI meets the physical world.</text>',
+        f'<text x="480" y="301" fill="{muted}" font-size="15" font-family="Inter,Segoe UI,Arial,sans-serif">Exploring embedded systems, computer vision, and deep learning.</text>',
+        f'<rect x="480" y="329" width="292" height="83" rx="13" fill="{bg}" stroke="{border}"/>',
+        f'<circle cx="503" cy="352" r="5" fill="{chrome}"/><text x="518" y="357" fill="{muted}" font-size="11" font-weight="700" letter-spacing="1.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">LOCATION</text>',
+        f'<text x="503" y="389" fill="{text}" font-size="17" font-weight="650" font-family="Inter,Segoe UI,Arial,sans-serif">Cairo, Egypt</text>',
+        f'<rect x="789" y="329" width="320" height="83" rx="13" fill="{bg}" stroke="{border}"/>',
+        f'<circle cx="812" cy="352" r="5" fill="{portrait_color}"/><text x="827" y="357" fill="{muted}" font-size="11" font-weight="700" letter-spacing="1.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">EDUCATION</text>',
+        f'<text x="812" y="389" fill="{text}" font-size="16" font-weight="650" font-family="Inter,Segoe UI,Arial,sans-serif">Helwan National University</text>',
+        f'<text x="480" y="439" fill="{muted}" font-size="11" font-weight="700" letter-spacing="1.8" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">TOOLKIT</text>',
+    ]
+    for label_text, x, y, width in chips:
+        chunks.extend([
+            f'<rect x="{x}" y="{y}" width="{width}" height="32" rx="10" fill="{border}" opacity=".52"/>',
+            f'<text x="{x + width / 2:.1f}" y="{y + 21}" text-anchor="middle" fill="{text}" font-size="13" font-weight="600" font-family="Inter,Segoe UI,Arial,sans-serif">{label_text}</text>',
+        ])
+    chunks.extend([
+        f'<rect x="480" y="510" width="629" height="43" rx="12" fill="{bg}" stroke="{border}"/>',
+        f'<circle cx="502" cy="531.5" r="4" fill="{accent}"/><text x="514" y="536" fill="{text}" font-size="12.5" font-family="Inter,Segoe UI,Arial,sans-serif">ym9159303@gmail.com</text>',
+        f'<line x1="704" y1="520" x2="704" y2="543" stroke="{border}"/>',
+        f'<text x="728" y="536" fill="{chrome}" font-size="12.5" font-weight="600" font-family="Inter,Segoe UI,Arial,sans-serif">linkedin.com/in/joox</text>',
+        f'<line x1="904" y1="520" x2="904" y2="543" stroke="{border}"/>',
+        f'<text x="928" y="536" fill="{portrait_color}" font-size="12.5" font-weight="600" font-family="Inter,Segoe UI,Arial,sans-serif">@joox.cmd</text>',
+    ])
     return ''.join(chunks)
 
 
@@ -241,7 +247,7 @@ def make_svg(bits: np.ndarray, mode: str) -> str:
 {travellers(accent)}
 <rect x="67" y="520" width="346" height="17" rx="8.5" fill="{border}" opacity=".42"/>
 <rect x="67" y="520" width="252" height="17" rx="8.5" fill="{chrome}" opacity=".65"><animate attributeName="width" values="98;252;330;252" dur="5s" repeatCount="indefinite"/></rect>
-<g font-family="ui-monospace,SFMono-Regular,Menlo,monospace">{info_panel(text, muted, chrome, accent)}</g>
+<g>{info_panel(text, muted, chrome, accent, border, bg, portrait)}</g>
 <text x="58" y="570" fill="{muted}" font-size="11" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">PYTHON · PYTORCH · ESP32 // CAIRO, EG</text>
 </svg>'''
 
