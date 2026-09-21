@@ -4,12 +4,11 @@
   <img width="100%" alt="Yousef Mohammed - IoT and AI Developer" src="https://raw.githubusercontent.com/yousefJooX/yousefJooX/main/assets/light.svg?v=2">
 </picture>
 
-<!-- Replace github-readme-stats.vercel.app with your private Vercel instance after deployment. -->
 <div align="center">
   <img width="100%" src="https://streak-stats.demolab.com/?user=yousefJooX&hide_border=true&background=0A101F&stroke=22D3EE&ring=A78BFA&fire=10B981&currStreakLabel=22D3EE&sideLabels=94A3B8&currStreakNum=F8FAFC&sideNums=F8FAFC&dates=64748B&titleColor=22D3EE&card_width=1180" alt="Yousef's contribution streak" />
   <br/>
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=yousefJooX&show_icons=true&count_private=true&include_all_commits=true&hide_rank=true&hide_border=true&title_color=22D3EE&icon_color=A78BFA&text_color=94A3B8&bg_color=0A101F&card_width=500" alt="Yousef's GitHub stats" />
-  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=yousefJooX&layout=compact&langs_count=8&hide_border=true&title_color=22D3EE&text_color=94A3B8&bg_color=0A101F&card_width=500" alt="Yousef's top languages" />
+  <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=yousefJooX&theme=tokyonight" alt="Yousef's GitHub stats" />
+  <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=yousefJooX&theme=tokyonight" alt="Yousef's top languages" />
 </div>
 
 <div align="center">
